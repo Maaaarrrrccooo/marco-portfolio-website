@@ -1,5 +1,6 @@
-import React from "react";
-import { Form, Container, Heading } from "rendition";
+import React, { useState } from "react";
+import { Form, Container, Heading, notifications } from "rendition";
+import emailjs from "emailjs-com";
 import Layout from "../components/Layout";
 import Nav from "../components/Nav";
 
@@ -46,8 +47,30 @@ const uiSchema = {
 };
 
 const SecondPage = () => {
-  const handleSubmit = (data) => {
-    console.log(data.formData);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (data) => {
+    setLoading(true);
+    const params = {
+      from_name: data.formData.Name,
+      to_name: "Marco",
+      message: `Email from ${data.formData.Email} and the message is ${data.formData.Description}, type:${data.formData.Type}, budget: ${data.formData.Budget}`,
+    };
+    const result = await emailjs.send(
+      "service_3phjpdv",
+      "template_vz2gfzd",
+      params,
+      "user_wnmbPkWGa7UVSP2ia6rqz"
+    );
+
+    if (result) {
+      setLoading(false);
+      notifications.addNotification({
+        content: "Message has been sent. Will contact you shortly!",
+        container: "top-center",
+        type: "success",
+      });
+    }
   };
 
   return (
@@ -65,8 +88,11 @@ const SecondPage = () => {
         <Container width={["100%", "60%", "60%", "50%"]}>
           <Form
             schema={schema}
+            submitButtonText={loading ? "Loading..." : "Submit"}
+            disabled={loading}
             uiSchema={uiSchema}
             onFormSubmit={handleSubmit}
+            submitButtonProps={{ disabled: loading, width: 1 }}
           />
         </Container>
       </Container>

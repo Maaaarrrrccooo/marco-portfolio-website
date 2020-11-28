@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "rendition";
+import { Provider, NotificationsContainer } from "rendition";
 import { BrowserRouter } from "react-router-dom";
 import Routes from "./Routes";
 import reportWebVitals from "./reportWebVitals";
@@ -20,6 +20,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider theme={theme}>
+        <NotificationsContainer />
         <Routes />
       </Provider>
     </BrowserRouter>
