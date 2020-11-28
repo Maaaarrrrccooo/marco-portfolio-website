@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Container, Flex, Heading, Button } from "rendition";
+import { Form, Container, Heading } from "rendition";
 import Layout from "../components/Layout";
 import Nav from "../components/Nav";
 
@@ -9,7 +9,7 @@ const schema = {
     Name: {
       type: "string",
     },
-    Height: { type: "string" },
+    Email: { type: "string" },
     Description: {
       type: "string",
     },
