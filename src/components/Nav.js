@@ -9,6 +9,7 @@ import {
   useTheme,
   Heading,
   Txt,
+  Navbar,
 } from "rendition";
 
 const Nav = styled.nav`
@@ -22,35 +23,35 @@ const Nav = styled.nav`
 const Navigation = () => {
   const theme = useTheme();
   const history = useHistory();
+
+  console.log(theme);
   return (
-    <Nav>
-      <Container>
-        <Flex
-          flexDirection="row"
-          justifyContent="space-between"
-          alignItems="center"
+    <Navbar
+      p="2.25rem 1.5rem"
+      backgroundColor="white"
+      color={theme.colors.primary.main}
+      brand={
+        <Link height="40px" href="/">
+          <Heading.h3 style={{ fontWeight: 100 }}>
+            Marco <Txt.span bold>Bustillo</Txt.span>
+          </Heading.h3>
+        </Link>
+      }
+    >
+      <Flex alignItems="center">
+        <Link marginRight="1rem" href="https://blog.marcobustillo.com">
+          Blog
+        </Link>
+        <Button
+          primary
+          outline
+          onClick={() => history.push("/contact")}
+          color={theme.colors.primary.main}
         >
-          <Link height="40px" href="/">
-            <Heading.h3 style={{ fontWeight: 100 }}>
-              Marco <Txt.span bold>Bustillo</Txt.span>
-            </Heading.h3>
-          </Link>
-          <Flex alignItems="center">
-            <Link marginRight="1rem" href="https://blog.marcobustillo.com">
-              Blog
-            </Link>
-            <Button
-              primary
-              outline
-              onClick={() => history.push("/contact")}
-              color={theme.colors.primary.main}
-            >
-              Say Hello
-            </Button>
-          </Flex>
-        </Flex>
-      </Container>
-    </Nav>
+          Say Hello
+        </Button>
+      </Flex>
+    </Navbar>
   );
 };
 
