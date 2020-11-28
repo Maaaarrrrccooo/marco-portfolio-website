@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import {
   Container,
@@ -21,6 +21,7 @@ const Nav = styled.nav`
 
 const Navigation = () => {
   const theme = useTheme();
+  const history = useHistory();
   return (
     <Nav>
       <Container>
@@ -41,7 +42,7 @@ const Navigation = () => {
             <Button
               primary
               outline
-              onClick={() => {}}
+              onClick={() => history.push("/contact")}
               color={theme.colors.primary.main}
             >
               Say Hello

@@ -1,14 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "rendition";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./Routes";
+import reportWebVitals from "./reportWebVitals";
+
+const theme = {
+  colors: {
+    primary: {
+      main: "#2f89fc",
+      dark: "#40514e",
+      semilight: "#30e3ca",
+      light: "#f5f5f5",
+    },
+  },
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Provider theme={theme}>
+        <Routes />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

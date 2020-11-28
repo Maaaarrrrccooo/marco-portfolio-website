@@ -48,24 +48,6 @@ const Avatar = styled.img`
   }
 `;
 
-const HeroImageBottom = styled.img`
-  max-width: 860px;
-  margin-bottom: -0.45rem;
-  height: auto;
-
-  @media (max-width: 768px) {
-    width: 430px;
-  }
-
-  @media (max-width: 425px) {
-    width: 300px;
-  }
-
-  @media (max-width: 320px) {
-    width: 270px;
-  }
-`;
-
 const Hero = () => {
   return (
     <HeroContainer>
@@ -86,9 +68,9 @@ const Hero = () => {
           <Avatar src={avatarImg} />
         </Container>
       </HeroBody>
-      <HeroFooter>
-        <Container>{/* <HeroImageBottom src={heroImg} /> */}</Container>
-      </HeroFooter>
+      {/* <HeroFooter>
+        
+      </HeroFooter> */}
     </HeroContainer>
   );
 };
