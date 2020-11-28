@@ -25,7 +25,11 @@ const uiSchema = {
   },
 };
 
-const SecondPage = () => (
+const Contact = () => {
+  const handleSubmit = (data) => {
+    console.log(data.formData);
+  };
+
   <Layout>
     <Container p="0rem 1.5rem">
       <Nav />
@@ -38,10 +42,9 @@ const SecondPage = () => (
         </Heading.h1>
       </Container>
       <Container width={["100%", "60%", "60%", "50%"]}>
-        <Form schema={schema} uiSchema={uiSchema} />
+        <Form schema={schema} uiSchema={uiSchema} onFormSubmit={handleSubmit} />
       </Container>
     </Container>
-  </Layout>
-);
-
-export default SecondPage;
+  </Layout>;
+};
+export default Contact;

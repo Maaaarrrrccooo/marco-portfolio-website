@@ -24,7 +24,6 @@ const Navigation = () => {
   const theme = useTheme();
   const history = useHistory();
 
-  console.log(theme);
   return (
     <Navbar
       p="2.25rem 1.5rem"

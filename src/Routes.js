@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import MainPage from "./pages";
-import Contact from "./pages/Contact";
+import Contact from "./pages/ContactForm";
 import NewProject from "./pages/NewProject";
 import NotFound from "./pages/404";
 

@@ -13,12 +13,22 @@ const schema = {
     Type: {
       type: "string",
       oneOf: [
+        { const: "webapp", title: "Web app" },
+        { const: "mobileapp", title: "Mobile App" },
+        {
+          const: "fullblown",
+          title: "Full system design + web app + mobile app",
+        },
+      ],
+    },
+    Budget: {
+      type: "string",
+      oneOf: [
         { const: "10k-50k", title: "Php10,000 - Php 50,000" },
         { const: "51k-100k", title: "Php51,000 - Php 100,000" },
         { const: "101k+", title: "Php101k+" },
       ],
     },
-    Budget: { type: "number" },
     Description: {
       title: "Additional details",
       type: "string",
@@ -35,23 +45,33 @@ const uiSchema = {
   },
 };
 
-const SecondPage = () => (
-  <Layout>
-    <Container p="0rem 1.5rem">
-      <Nav />
-      <Container textAlign="center">
-        <Heading.h1
-          color="black"
-          fontSize={["1.5rem", "1.5rem", "3rem", "3rem"]}
-        >
-          I would love to hear about your project in mind.
-        </Heading.h1>
+const SecondPage = () => {
+  const handleSubmit = (data) => {
+    console.log(data.formData);
+  };
+
+  return (
+    <Layout>
+      <Container p="0rem 1.5rem">
+        <Nav />
+        <Container textAlign="center">
+          <Heading.h1
+            color="black"
+            fontSize={["1.5rem", "1.5rem", "3rem", "3rem"]}
+          >
+            I would love to hear about your project in mind.
+          </Heading.h1>
+        </Container>
+        <Container width={["100%", "60%", "60%", "50%"]}>
+          <Form
+            schema={schema}
+            uiSchema={uiSchema}
+            onFormSubmit={handleSubmit}
+          />
+        </Container>
       </Container>
-      <Container width={["100%", "60%", "60%", "50%"]}>
-        <Form schema={schema} uiSchema={uiSchema} />
-      </Container>
-    </Container>
-  </Layout>
-);
+    </Layout>
+  );
+};
 
 export default SecondPage;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 import { Box, Flex, Heading, Txt, Button, useTheme } from "rendition";
 import SectionContainer from "./SectionContainer";
 
@@ -10,6 +11,7 @@ const CallToActionContainer = styled(SectionContainer)`
 
 const CallToAction = () => {
   const theme = useTheme();
+  const history = useHistory();
 
   return (
     <CallToActionContainer
@@ -41,7 +43,12 @@ const CallToAction = () => {
             </Txt.p>
           </Box>
           <Box>
-            <Button primary outline color="white">
+            <Button
+              primary
+              outline
+              color="white"
+              onClick={() => history.push("/planner")}
+            >
               Lets do this
             </Button>
           </Box>
