@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { Form, Container, Heading, notifications } from "rendition";
+import { CaptchaWidget } from "rendition/dist/extra/Form/captcha";
 import emailjs from "emailjs-com";
 import Layout from "../components/Layout";
 import Nav from "../components/Nav";
+
+Form.registerWidget("captcha", CaptchaWidget);
+
+window.RECAPTCHA_V2_API_KEY = "66Lfj8vAZAAAAAAUFYoqs04zNLz3uq1mig8Gsvmx7";
 
 const schema = {
   type: "object",
@@ -13,6 +18,10 @@ const schema = {
     Email: { type: "string" },
     Description: {
       type: "string",
+    },
+    Captcha: {
+      type: "string",
+      format: "captcha",
     },
   },
 };
