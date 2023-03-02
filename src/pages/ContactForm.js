@@ -7,7 +7,7 @@ import Nav from "../components/Nav";
 
 Form.registerWidget("captcha", CaptchaWidget);
 
-window.RECAPTCHA_V2_API_KEY = "66Lfj8vAZAAAAAAUFYoqs04zNLz3uq1mig8Gsvmx7";
+window.RECAPTCHA_V2_API_KEY = "6Lfj8vAZAAAAAAUFYoqs04zNLz3uq1mig8Gsvmx7";
 
 const schema = {
   type: "object",
