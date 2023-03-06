@@ -5,8 +5,8 @@ variable "system_name" {
 variable "environment" {
   type = string
   validation {
-    condition = contains(["dev","stg","prd"], var.environment)
-    error_message = "The environment value must be valid. dev for development, stg for staging, and prd for production"
+    condition     = contains(["dev", "stg", "prd"], var.environment)
+    error_message = "The environment value must be valid."
   }
 }
 
@@ -14,6 +14,6 @@ variable "location" {
   type = string
   validation {
     condition     = contains(["sa", "ea"], var.location)
-    error_message = "The only allowed location values are sa, and ea"
+    error_message = "The location value must be valid."
   }
 }
