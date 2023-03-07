@@ -26,7 +26,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: terraform plan
-        uses: dflook/terraform-plan@v1
-        with:
-          path: terraform
+      - name: Some AWS commands
+        run: |
+          aws s3api list-buckets --query "Buckets[].Name"
+      # - name: terraform plan
+      #   uses: dflook/terraform-plan@v1
+      #   with:
+      #     path: terraform
