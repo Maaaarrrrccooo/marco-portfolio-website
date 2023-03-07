@@ -4,6 +4,7 @@ on:
   - pull_request
 
 permissions:
+  id-token: write
   contents: read
   pull-requests: write
 
@@ -14,6 +15,13 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
+      - name: configureawscredentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE }}
+          role-session-name: samplerolesession
+          aws-region: ${{env.AWS_DEFAULT_REGION}}
+          
       - name: Checkout
         uses: actions/checkout@v3
 
