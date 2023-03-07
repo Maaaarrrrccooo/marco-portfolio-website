@@ -26,10 +26,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Some AWS commands
-        run: |
-          aws s3api list-buckets --query "Buckets[].Name"
-      # - name: terraform plan
-      #   uses: dflook/terraform-plan@v1
-      #   with:
-      #     path: terraform
+      - name: terraform plan
+        uses: dflook/terraform-plan@v1
+        with:
+          variables: |
+            bucket = "awssgpterraformbucket"
+            key = "terraform.tfstate"
+            region = "${{ env.AWS_DEFAULT_REGION }}"
+          path: terraform
