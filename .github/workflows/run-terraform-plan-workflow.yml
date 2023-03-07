@@ -29,7 +29,7 @@ jobs:
       - name: terraform plan
         uses: dflook/terraform-plan@v1
         with:
-          variables: |
+          backend_config: |
             bucket = "awssgpterraformbucket"
             key = "terraform.tfstate"
             region = "${{ env.AWS_DEFAULT_REGION }}"
