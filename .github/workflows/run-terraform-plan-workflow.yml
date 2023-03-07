@@ -14,13 +14,14 @@ jobs:
     name: Create a plan for an example terraform configuration
     env:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      AWS_DEFAULT_REGION: ap-southeast-1
     steps:
       - name: configureawscredentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: ${{ secrets.AWS_ROLE }}
           role-session-name: samplerolesession
-          aws-region: ${{env.AWS_DEFAULT_REGION}}
+          aws-region: ${{ env.AWS_DEFAULT_REGION }}
           
       - name: Checkout
         uses: actions/checkout@v3
