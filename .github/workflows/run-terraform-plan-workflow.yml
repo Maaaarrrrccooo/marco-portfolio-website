@@ -60,7 +60,7 @@ jobs:
           TF_VAR_environment: "prd"
           TF_VAR_location: "ea"
           TF_VAR_cloudflare_zone_id: ${{ secrets.CF_ZONE_ID }}
-          API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          TF_VAR_cloudflare_api_token: ${{ secrets.CF_API_TOKEN }}
           ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
