@@ -16,6 +16,12 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       AWS_DEFAULT_REGION: ap-southeast-1
     steps:
+      - name: 'Az CLI login'
+        uses: azure/login@v1
+        with:
+            client-id: ${{ secrets.AZURE_CLIENT_ID }}
+            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       - name: configureawscredentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
