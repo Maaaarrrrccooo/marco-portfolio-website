@@ -45,6 +45,7 @@ jobs:
       - name: Terraform Plan
         id: plan
         run: terraform plan -no-color
+        working-directory: terraform
         env:
           TF_VAR_system_name: "portfolio"
           TF_VAR_environment: "prd"
