@@ -38,11 +38,20 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
+      
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
 
       - name: Terraform Init
         id: init
         run: terraform init -backend-config="bucket=awssgpterraformbucket" -backend-config="key=site/terraform.tfstate" -backend-config="encrypt=true" -backend-config="region=ap-southeast-1"
       
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
+
       - name: Terraform Plan
         id: plan
         run: terraform plan -no-color
