@@ -14,8 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy job
     steps:
-      - uses: actions/checkout@v3
-      
+      - name: Download artifact
+        id: download-artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: react-build.yml
+          workflow_conclusion: success
+          name: build
+          if_no_artifact_found: fail
+          
       # - name: Deploy
       #   id: deploy
       #   uses: Azure/static-web-apps-deploy@1
