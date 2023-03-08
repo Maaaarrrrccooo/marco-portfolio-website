@@ -29,5 +29,5 @@ jobs:
       - name: terraform plan
         uses: dflook/terraform-plan@v1
         with:
-          backend_config_file: ../../config/backend-prod.conf
+          backend_config_file: config/backend-prod.conf
           path: terraform
