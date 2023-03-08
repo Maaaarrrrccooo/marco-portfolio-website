@@ -20,7 +20,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: ${{ secrets.AWS_ROLE }}
-          role-session-name: samplerolesession
+          role-session-name: samplerolesession  z
           aws-region: ${{ env.AWS_DEFAULT_REGION }}
           
       - name: Checkout
@@ -29,8 +29,5 @@ jobs:
       - name: terraform plan
         uses: dflook/terraform-plan@v1
         with:
-          backend_config: |
-            bucket = "awssgpterraformbucket"
-            key = "terraform.tfstate"
-            region = "${{ env.AWS_DEFAULT_REGION }}"
+          backend_config_file: ../config/backend-prod.conf
           path: terraform
