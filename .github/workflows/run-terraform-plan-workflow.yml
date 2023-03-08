@@ -11,10 +11,14 @@ permissions:
 jobs:
   plan:
     runs-on: ubuntu-latest
-    name: Create a plan for an example terraform configuration
+    name: Create a plan for portfolio website
     env:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       AWS_DEFAULT_REGION: ap-southeast-1
+      TF_WORKING_DIR: terraform
+    defaults:
+      run:
+        working-directory: ${{ env.TF_WORKING_DIR }}
     steps:
       - name: 'Az CLI login'
         uses: azure/login@v1
@@ -38,12 +42,10 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init -backend-config="bucket=awssgpterraformbucket" -backend-config="key=site/terraform.tfstate" -backend-config="encrypt=true" -backend-config="region=ap-southeast-1"
-        working-directory: terraform
       
       - name: Terraform Plan
         id: plan
         run: terraform plan -no-color
-        working-directory: terraform
         env:
           TF_VAR_system_name: "portfolio"
           TF_VAR_environment: "prd"
