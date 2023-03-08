@@ -3,7 +3,7 @@ resource "cloudflare_record" "cloudflare_cname_record_main" {
     azurerm_static_site.static_site
   ]
   zone_id = var.cloudflare_zone_id
-  name    = "marcobustillo.com"
+  name    = "@"
   value   = "7tzlpnspq36z9pk3r5swvgdxlnzr097n"
   type    = "TXT"
   ttl     = 3600
