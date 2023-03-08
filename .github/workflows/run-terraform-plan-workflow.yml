@@ -29,5 +29,9 @@ jobs:
       - name: terraform plan
         uses: dflook/terraform-plan@v1
         with:
+          variables: |
+            system_name = "portfolio"
+            environment = "prd"
+            location = "sa"
           backend_config_file: config/backend-prod.conf
           path: terraform
