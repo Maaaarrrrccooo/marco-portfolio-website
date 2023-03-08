@@ -4,7 +4,7 @@ locals {
     "ea" = "East Asia"
   }
 
-  system_name = "az${var.location}${var.environment}${system_name}"
+  system_name = "az${var.location}${var.environment}${var.system_name}"
 
   env_code = {
     "dev" = "development"
