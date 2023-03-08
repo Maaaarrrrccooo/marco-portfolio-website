@@ -32,14 +32,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: terraform plan
-        uses: dflook/terraform-plan@v1
-        env:
-          ARM_USE_OIDC: true
-        with:
-          variables: |
-            system_name = "portfolio"
-            environment = "prd"
-            location = "sa"
-          backend_config_file: config/backend-prod.conf
-          path: terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+      
