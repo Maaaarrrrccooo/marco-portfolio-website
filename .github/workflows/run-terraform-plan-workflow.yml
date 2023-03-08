@@ -42,4 +42,10 @@ jobs:
         run: terraform init -backend-config="bucket=awssgpterraformbucket" -backend-config="key=site/terraform.tfstate" -backend-config="encrypt=true" -backend-config="region=ap-southeast-1"
         working-directory: terraform
       
-      
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color
+        env:
+          TF_VAR_system_name: "portfolio"
+          TF_VAR_environment: "prd"
+          TF_VAR_location: "sa"
