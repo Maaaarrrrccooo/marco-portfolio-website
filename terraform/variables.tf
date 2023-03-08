@@ -11,7 +11,8 @@ variable "environment" {
 }
 
 variable "location" {
-  type = string
+  type    = string
+  default = "ea"
   validation {
     condition     = contains(["sa", "ea"], var.location)
     error_message = "The location value must be valid."
