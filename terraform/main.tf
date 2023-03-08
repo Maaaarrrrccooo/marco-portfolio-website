@@ -4,7 +4,7 @@ locals {
     "ea" = "East Asia"
   }
 
-  system_name = "az${var.location}${var.environment}${system_name}"
+  system_name = "az${var.location}${var.environment}${var.system_name}"
 
   env_code = {
     "dev" = "development"
@@ -29,6 +29,6 @@ resource "azurerm_static_site" "static_site" {
   sku_size            = "Free"
 
   tags = {
-    environment = locals.env_code[var.environment]
+    environment = local.env_code[var.environment]
   }
 }
