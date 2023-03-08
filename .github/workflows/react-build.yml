@@ -23,6 +23,8 @@ jobs:
   
       - name: Generate build
         run: npm run build
+        env:
+          CI: ""
 
       - uses: actions/upload-artifact@v3
         with:
