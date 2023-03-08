@@ -39,7 +39,7 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init -backend-config=config/backend-prod.conf
+        run: terraform init -backend-config="bucket=awssgpterraformbucket" -backend-config="key=site/terraform.tfstate" -backend-config="encrypt=true" -backend-config="region=ap-southeast-1"
         working-directory: terraform
       
       
