@@ -5,32 +5,19 @@ import avatarImg from "../assets/marco-pic.png";
 
 const HeroContainer = styled.section`
   display: flex;
-  padding-top: 2rem;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
   text-align: center;
-  padding: 0rem 1.5rem;
+  padding: 0 1.5rem;
 `;
 
 const HeroBody = styled.div`
   flex: 1;
-  flex-grow: 1;
-  flex-shrink: 0;
   padding: 3rem 1.5rem;
   @media (max-width: 768px) {
     padding: 1rem;
   }
-
-  @media (max-width: 425px) {
-    padding: 1rem;
-  }
-`;
-
-const HeroFooter = styled.div`
-  padding: 0rem 1.5rem;
-  flex-grow: 0;
-  flex-shrink: 0;
 `;
 
 const Avatar = styled.img`
@@ -53,24 +40,15 @@ const Hero = () => {
     <HeroContainer>
       <HeroBody>
         <Container>
-          <Heading.h1
-            color="black"
-            fontSize={["1.5rem", "1.5rem", "3rem", "3rem"]}
-          >
+          <Heading.h1 color="black" fontSize="var(--font-size-display)">
             Software Developer & System Designer
           </Heading.h1>
-          <Heading.h2
-            color="black"
-            fontSize={["0.8rem", "0.8rem", "1.5rem", "1.5rem"]}
-          >
+          <Heading.h2 color="black" fontSize="var(--font-size-lead)">
             I design and build simple things, and I love what I do.
           </Heading.h2>
           <Avatar src={avatarImg} />
         </Container>
       </HeroBody>
-      {/* <HeroFooter>
-        
-      </HeroFooter> */}
     </HeroContainer>
   );
 };

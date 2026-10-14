@@ -7,10 +7,6 @@ const FooterContainer = styled.footer`
   background-color: ${(props) => props.backgroundColor};
 `;
 
-const AvatarItem = styled.img`
-  height: 2.5rem;
-`;
-
 const Footer = () => {
   const theme = useTheme();
   return (
@@ -24,7 +20,7 @@ const Footer = () => {
           </Link>
         </Container>
         <Container marginBottom="3rem">
-          <Heading.h2 color="white" fontSize="1.6rem">
+          <Heading.h2 color="white" fontSize="var(--font-size-lead)">
             Always walk through life as if you have something new to learn and
             you will.
           </Heading.h2>

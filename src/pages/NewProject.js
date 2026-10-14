@@ -78,14 +78,11 @@ const SecondPage = () => {
       <Container p="0rem 1.5rem">
         <Nav />
         <Container textAlign="center">
-          <Heading.h1
-            color="black"
-            fontSize={["1.5rem", "1.5rem", "3rem", "3rem"]}
-          >
+          <Heading.h1 color="black" fontSize="var(--font-size-display)">
             I would love to hear about your project in mind.
           </Heading.h1>
         </Container>
-        <Container width={["100%", "60%", "60%", "50%"]}>
+        <Container width={["100%", "90%", "75%", "50%"]} margin="0 auto">
           <Form
             schema={schema}
             submitButtonText={loading ? "Loading..." : "Submit"}

@@ -78,48 +78,50 @@ const Skills = () => {
   return (
     <SectionContainer padding={["1rem 1rem", "5rem 1.5rem"]}>
       <Container p={0}>
-        <Flex justifyContent="center" marginTop="-16rem" flexWrap="wrap">
+        <Flex
+          justifyContent="center"
+          marginTop={["-8rem", "-10rem"]}
+          flexWrap="wrap"
+          style={{ gap: "1rem" }}
+        >
           {value.map((val, i) => {
             return (
               <Card
                 key={i.toString()}
                 justifyContent="center"
-                flex="1 1 30%"
+                flex={["1 1 100%", "1 1 45%", "1 1 30%"]}
                 padding="1.5rem 1rem"
-                margin={["5px", "10px", "10px", "10px"]}
+                margin={0}
               >
                 <Container p={0} textAlign="center">
                   <FigureContainer>
                     <FigureImage src={val.image} />
                   </FigureContainer>
                   <Container minHeight="30px">
-                    <Heading.h3
-                      bold
-                      fontSize={["1rem", "1rem", "1.2rem", "1.2rem"]}
-                    >
+                    <Heading.h3 bold fontSize="var(--font-size-card-title)">
                       {val.title}
                     </Heading.h3>
                   </Container>
                   <Container minHeight="50px">
-                    <Txt.p fontSize={["0.8rem", "0.8rem", "1rem", "1rem"]}>
+                    <Txt.p fontSize="var(--font-size-small)">
                       {val.description}
                     </Txt.p>
                   </Container>
                   <Heading.h4
                     bold
                     color={theme.colors.primary.main}
-                    fontSize={["1rem", "1rem", "1.2rem", "1.2rem"]}
+                    fontSize="var(--font-size-card-title)"
                   >
                     {val.skillDescription}
                   </Heading.h4>
                   <Container minHeight="40px">
-                    <Txt.p fontSize={["0.8rem", "0.8rem", "1rem", "1rem"]}>
+                    <Txt.p fontSize="var(--font-size-small)">
                       {val.skills.join(", ")}
                     </Txt.p>
                   </Container>
                   <Heading.h4
                     bold
-                    fontSize={["1rem", "1rem", "1.2rem", "1.2rem"]}
+                    fontSize="var(--font-size-card-title)"
                     color={theme.colors.primary.main}
                   >
                     {val.toolDescription}
@@ -129,19 +131,19 @@ const Skills = () => {
                     <Txt.p
                       key={i.toString()}
                       m={1}
-                      fontSize={["0.8rem", "0.8rem", "1rem", "1rem"]}
+                      fontSize="var(--font-size-small)"
                     >
                       {tool}
                     </Txt.p>
                   ))}
                 </Container>
               </Card>
-            )
+            );
           })}
         </Flex>
       </Container>
     </SectionContainer>
-  )
+  );
 }
 
 export default Skills

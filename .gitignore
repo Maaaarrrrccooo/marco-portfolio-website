@@ -58,3 +58,7 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+# Skipper — machine-local artifacts (hook scratch + derived index), never commit
+.claude/.skipper-*
+.skipper/*
+!.skipper/receipts/

@@ -5,9 +5,10 @@ import emailjs from "emailjs-com";
 import Layout from "../components/Layout";
 import Nav from "../components/Nav";
 
-Form.registerWidget("captcha", CaptchaWidget);
-
-window.RECAPTCHA_V2_API_KEY = "6Lfj8vAZAAAAAAUFYoqs04zNLz3uq1mig8Gsvmx7";
+window.RECAPTCHA_V2_API_KEY =
+  process.env.NODE_ENV === "development"
+    ? "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+    : "6Lfj8vAZAAAAAAUFYoqs04zNLz3uq1mig8Gsvmx7";
 
 const schema = {
   type: "object",
@@ -48,7 +49,7 @@ const Contact = () => {
       "service_3phjpdv",
       "template_vz2gfzd",
       params,
-      "user_wnmbPkWGa7UVSP2ia6rqz"
+      "user_wnmbPkWGa7UVSP2ia6rqz",
     );
 
     if (result) {
@@ -66,16 +67,16 @@ const Contact = () => {
       <Container p="0rem 1.5rem">
         <Nav />
         <Container textAlign="center">
-          <Heading.h1
-            color="black"
-            fontSize={["1.5rem", "1.5rem", "3rem", "3rem"]}
-          >
+          <Heading.h1 color="black" fontSize="var(--font-size-display)">
             Thank you for reach out. How can I help you?
           </Heading.h1>
         </Container>
-        <Container width={["100%", "60%", "60%", "50%"]}>
+        <Container width={["100%", "90%", "75%", "50%"]} margin="0 auto">
           <Form
             schema={schema}
+            extraFormats={[
+              { name: "captcha", format: ".*", widget: CaptchaWidget },
+            ]}
             submitButtonText={loading ? "Loading..." : "Submit"}
             disabled={loading}
             uiSchema={uiSchema}

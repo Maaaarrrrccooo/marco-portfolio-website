@@ -44,7 +44,7 @@ const Projects = () => {
     <SectionContainer padding={["5rem 1rem", "5rem 1.5rem"]}>
       <Container textAlign="center">
         <Heading.h3 bold>My Recent Works</Heading.h3>
-        <Txt.p fontSize="1.2rem">
+        <Txt.p fontSize="var(--font-size-lead)">
           Here are my projects I've worked on recently.
         </Txt.p>
         <Flex flexWrap="wrap" justifyContent="center">
@@ -59,8 +59,12 @@ const Projects = () => {
                 <Flex justifyContent="center">
                   <Img src={item.image} height="90px" width="90px" />
                 </Flex>
-                <Heading.h3>{item.title}</Heading.h3>
-                <Txt.p>{item.description}</Txt.p>
+                <Heading.h3 fontSize="var(--font-size-card-title)">
+                  {item.title}
+                </Heading.h3>
+                <Txt.p fontSize="var(--font-size-body)">
+                  {item.description}
+                </Txt.p>
                 <Button
                   primary
                   outline

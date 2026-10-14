@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { Provider, NotificationsContainer } from "rendition";
 import { BrowserRouter } from "react-router-dom";
 import Routes from "./Routes";
@@ -16,7 +16,9 @@ const theme = {
   },
 };
 
-ReactDOM.render(
+const root = createRoot(document.getElementById("root"));
+
+root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider theme={theme}>
@@ -25,7 +27,6 @@ ReactDOM.render(
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -25,14 +25,11 @@ const About = () => {
   return (
     <AboutContainer pb={["10rem", "14rem", "16rem", "16rem"]}>
       <Container p={["5rem", 0, 0, 0]}>
-        <Heading.h1
-          lineHeight="1.125"
-          fontSize={["1.5rem", "1.5rem", "3rem", "3rem"]}
-        >
+        <Heading.h1 lineHeight="1.125" fontSize="var(--font-size-display)">
           Hi, I’m Marco. Nice to meet you.
         </Heading.h1>
         <Container p={0} m={0} width={["100%", "80%", "80%", "60%"]}>
-          <SubTitle lineHeight="1.8" fontSize="1rem">
+          <SubTitle lineHeight="1.8" fontSize="var(--font-size-body)">
             Joining the workforce 3 years ago, I have done full-stack
             development for freelancing and corporate setting. I always want to
             be involved from the start and to the end of the project because I

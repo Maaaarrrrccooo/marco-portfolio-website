@@ -19,7 +19,7 @@ const CallToAction = () => {
       padding={["1rem 1rem", "5rem 1.5rem"]}
     >
       <Box
-        padding="2.8rem 1.2rem;"
+        padding={["1.5rem 1rem", "2.8rem 1.2rem"]}
         marginTop={["-2rem", "-4rem"]}
         marginRight="auto"
         marginLeft="auto"
@@ -32,12 +32,21 @@ const CallToAction = () => {
       >
         <Flex flexWrap="wrap" justifyContent="space-around" alignItems="center">
           <Box>
-            <Heading.h1 bold fontSize="2rem" color="white">
+            <Heading.h1
+              bold
+              fontSize="var(--font-size-section-title)"
+              color="white"
+            >
               Start a project
             </Heading.h1>
           </Box>
           <Box>
-            <Txt.p fontSize="1rem" maxWidth="300px" bold color="white">
+            <Txt.p
+              fontSize="var(--font-size-body)"
+              maxWidth="300px"
+              bold
+              color="white"
+            >
               Interested in working together? We should queue up a chat. I’ll
               buy the coffee.
             </Txt.p>

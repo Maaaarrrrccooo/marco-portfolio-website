@@ -1,23 +1,19 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-import {
-  Container,
-  Link,
-  Flex,
-  Button,
-  useTheme,
-  Heading,
-  Txt,
-  Navbar,
-} from "rendition";
+import { Link, Flex, Button, useTheme, Heading, Txt } from "rendition";
 
-const Nav = styled.nav`
+const NavContainer = styled.nav`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 2.25rem 1.5rem;
-  box-shadow: none;
-  z-index: auto;
   background-color: #fff;
-  min-height: 3.25rem;
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
 `;
 
 const Navigation = () => {
@@ -25,20 +21,14 @@ const Navigation = () => {
   const history = useHistory();
 
   return (
-    <Navbar
-      p="2.25rem 1.5rem"
-      backgroundColor="white"
-      color={theme.colors.primary.main}
-      brand={
-        <Link height="40px" href="/">
-          <Heading.h3 style={{ fontWeight: 100 }}>
-            Marco <Txt.span bold>Bustillo</Txt.span>
-          </Heading.h3>
-        </Link>
-      }
-    >
-      <Flex alignItems="center">
-        <Link marginRight="1rem" href="https://blog.marcobustillo.com">
+    <NavContainer>
+      <Link height="40px" href="/">
+        <Heading.h3 style={{ fontWeight: 100 }}>
+          Marco <Txt.span bold>Bustillo</Txt.span>
+        </Heading.h3>
+      </Link>
+      <Flex alignItems="center" flexWrap="nowrap">
+        <Link marginRight="1rem" href="https://dev.to/marcobustillo">
           Blog
         </Link>
         <Button
@@ -50,7 +40,7 @@ const Navigation = () => {
           Say Hello
         </Button>
       </Flex>
-    </Navbar>
+    </NavContainer>
   );
 };
 
